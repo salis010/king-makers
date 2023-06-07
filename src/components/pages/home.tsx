@@ -1,7 +1,8 @@
 import React, { FC } from 'react'
-import { Header } from '../'
+import { Header, Table } from '../'
 
 export const Home: FC = () =>
-  <main>
+  <main className='flex flex-col items-center'>
     <Header />
+    <Table />
   </main>
