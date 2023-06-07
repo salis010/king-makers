@@ -1,2 +1,5 @@
+export { ActiveIcon } from './active-icon'
+export { InactiveIcon } from './inactive-icon'
 export { CloseIcon } from './close-icon'
+export { FilterIcon } from './filter-icon'
 export { SearchIcon } from './search-icon'
