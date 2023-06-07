@@ -9,7 +9,7 @@ export const SearchBox: FC = () => {
 
   const dispatch = useDispatch()
 
-  const baseStyle = 'absolute flex justify-between border-2 rounded-md w-300 top-40 right-8 border-grey-100'
+  const baseStyle = 'flex justify-between border-2 mr-8 h-16 rounded-md w-300 border-grey-100'
   const animationStyle = isSearchBoxOpen ? 'animate-searchBox' : ''
   const searchBoxStyle = `${baseStyle} ${animationStyle}`
 
@@ -32,7 +32,7 @@ export const SearchBox: FC = () => {
     <>
       {!isSearchBoxOpen &&
         <div
-          className='absolute h-20 px-4 cursor-pointer right-8 top-44'
+          className='absolute h-48 px-8 mb-8 cursor-pointer right-4 top-10'
           onClick={openSearchBox}
         >
           <SearchIcon />
@@ -41,12 +41,12 @@ export const SearchBox: FC = () => {
         <div className={searchBoxStyle}>
           <div className='relative flex items-center w-full'>
             <input
-              className='h-20 pl-4 text-3xl bg-grey-0 outline-0 text-grey-100'
+              className='pl-4 text-3xl bg-grey-0 outline-0 text-grey-100'
               onChange={changeHandler}
               value={searchTerm}
             />
             <div
-              className='absolute right-0 flex items-center px-4 cursor-pointer'
+              className='absolute flex items-center px-8 cursor-pointer -right-4'
               onClick={closeSearchBox}
             >
               <CloseIcon isDefaultColor={false} />

@@ -1,4 +1,7 @@
 import React, { FC } from 'react'
+import { Header } from '../'
 
 export const Home: FC = () =>
-  <h1>HOME</h1>
+  <main>
+    <Header />
+  </main>

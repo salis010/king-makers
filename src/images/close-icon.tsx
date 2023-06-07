@@ -11,8 +11,8 @@ export const CloseIcon: FC<ICloseIcon> = ({ isDefaultColor = true }) => {
       style={{ outline: 'none' }}
       version='1.1'
       id='Layer_1'
-      width='32px'
-      height='32px'
+      width='24px'
+      height='24px'
       xmlns='http://www.w3.org/2000/svg'
       x='0px'
       y='0px'

@@ -24,6 +24,9 @@ module.exports = {
       }
     },
     extend: {
+      width: {
+        300: '30rem'
+      },
       keyframes: {
         searchBox: {
           from: {
