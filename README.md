@@ -38,3 +38,6 @@ Go to `localhost:3000` on a browser.
 
 
 ## Suggested Improvements
+
+- the date picker needs some good improvements; ideally a more beautiful component than `<input type='date' />` is used.
+- the app should cater for smaller screens too.

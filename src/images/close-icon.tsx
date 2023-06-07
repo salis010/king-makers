@@ -2,17 +2,19 @@ import React, { FC } from 'react'
 
 interface ICloseIcon {
   isDefaultColor?: boolean
+  isSmall?: boolean
 }
-export const CloseIcon: FC<ICloseIcon> = ({ isDefaultColor = true }) => {
-  const color = isDefaultColor ? '#EF4136' : '#FFF'
+export const CloseIcon: FC<ICloseIcon> = ({ isDefaultColor = true, isSmall = false }) => {
+  const color = isDefaultColor ? '#a40537' : '#FFF'
+  const dimension = isSmall ? '16px' : '24px'
 
   return (
     <svg
       style={{ outline: 'none' }}
       version='1.1'
       id='Layer_1'
-      width='24px'
-      height='24px'
+      width={dimension}
+      height={dimension}
       xmlns='http://www.w3.org/2000/svg'
       x='0px'
       y='0px'
