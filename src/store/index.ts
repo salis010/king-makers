@@ -1,6 +1,7 @@
 import { configureStore, EnhancedStore } from '@reduxjs/toolkit'
 import { ui, uiInitialState, IUI } from './ui-slice'
-import { campaigns, campaignsInitialState, ICampaigns } from './campaigns-slice'
+import { campaigns, campaignsInitialState } from './campaigns-slice'
+import { ICampaigns } from '../types'
 
 export interface IState {
   campaigns: ICampaigns

@@ -3,9 +3,6 @@
 TODO
 ====
 
-- filter feature
-- search feature
-- serch box bug: when clearing the filter the `openSearchBox` function in src/components/search-box.tsx get sometimes triggers and the search box is opened
 - add campaigns from console
 - is the typings folder required?
 - is typings/custom/import-jpg.d.ts required

@@ -1,19 +1,7 @@
-import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk, PayloadAction, current } from '@reduxjs/toolkit'
 import { generateInitialCampaignsThunk } from './thunks'
 import { filterCampaigns } from '../../utils'
-import { FROM, TO } from '../../constants'
-import { ICampaign, IFilterDates } from '../../types'
-
-export interface ICampaigns {
-  campaigns: ICampaign[]
-  campaignsToDisplay: ICampaign[]
-  isFilterDashboardOpen: boolean
-  isDatePortalOpen: boolean
-  isSearchBoxOpen: boolean
-  searchTerm: string | null
-  filterDates: IFilterDates
-  isDateError: boolean
-}
+import { ICampaigns, IFilterDates } from '../../types'
 
 export const campaignsInitialState: ICampaigns = {
   campaigns: [],
@@ -21,7 +9,7 @@ export const campaignsInitialState: ICampaigns = {
   isFilterDashboardOpen: true,
   isDatePortalOpen: false,
   isSearchBoxOpen: false,
-  searchTerm: null,
+  searchTerm: '',
   filterDates: {},
   isDateError: false
 }
@@ -36,16 +24,11 @@ export const campaignSlice = createSlice({
   reducers: {
     // addCampaigns: (state, action: PayloadAction<ICampaign[]>) => { state.campaigns = [...state.campaigns, ...action.payload] }
     setIsFilterDashboardOpen: state => { state.isFilterDashboardOpen = !state.isFilterDashboardOpen },
-    setIsDatePortalOpen: (state, action: PayloadAction<boolean>) => { state.isDatePortalOpen = action.payload },
     setFilterDates: (state, action: PayloadAction<IFilterDates>) => {
       state.filterDates = action.payload
 
       if (!state.isDateError) {
-        const campaigns = state.campaigns
-        const fromDate = state.filterDates?.[FROM]
-        const toDate = state.filterDates?.[TO]
-
-        state.campaignsToDisplay = filterCampaigns({ campaigns, fromDate, toDate })
+        state.campaignsToDisplay = filterCampaigns(current(state))
       }
     },
     setIsDateError: (state, action: PayloadAction<boolean>) => { state.isDateError = action.payload },
@@ -54,8 +37,20 @@ export const campaignSlice = createSlice({
       state.campaignsToDisplay = state.campaigns
     },
     setIsSearchBoxOpen: (state, action: PayloadAction<boolean>) => { state.isSearchBoxOpen = action.payload },
-    setSearchTerm: (state, action: PayloadAction<string>) => { state.searchTerm = action.payload },
-    clearSearch: state => { state.searchTerm = '' }
+    setSearchTerm: (state, action: PayloadAction<string>) => {
+      const searchTerm = action.payload
+      state.searchTerm = searchTerm
+
+      if (!state.isDateError) {
+        state.campaignsToDisplay = filterCampaigns(current(state))
+      }
+    },
+    clearSearch: state => {
+      state.searchTerm = ''
+      if (!state.isDateError) {
+        state.campaignsToDisplay = filterCampaigns(current(state))
+      }
+    }
   },
   extraReducers: builder => {
     // generate initial campaigns
@@ -73,7 +68,6 @@ export const campaignSlice = createSlice({
 export const {
   // addCampaigns,
   setIsFilterDashboardOpen,
-  setIsDatePortalOpen,
   setFilterDates,
   setIsDateError,
   clearFilter,

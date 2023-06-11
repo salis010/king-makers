@@ -16,3 +16,14 @@ export interface IFilterDates {
 }
 
 export type FilterDateType = typeof FROM | typeof TO
+
+export interface ICampaigns {
+  campaigns: ICampaign[]
+  campaignsToDisplay: ICampaign[]
+  isFilterDashboardOpen: boolean
+  isDatePortalOpen: boolean
+  isSearchBoxOpen: boolean
+  searchTerm: string
+  filterDates: IFilterDates
+  isDateError: boolean
+}
