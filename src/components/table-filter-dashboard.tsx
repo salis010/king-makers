@@ -1,12 +1,12 @@
 import React, { FC } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { setIsFilterDashboardOpen, clearFilter } from '../store/ui-slice'
+import { setIsFilterDashboardOpen, clearFilter } from '../store/campaigns-slice'
 import { FilterDashboard } from '.'
 import { FilterIcon } from '../images'
 import { IState } from '../types'
 
 export const TableFilterDashboard: FC = () => {
-  const { isFilterDashboardOpen } = useSelector((state: IState) => state.ui)
+  const { isFilterDashboardOpen } = useSelector((state: IState) => state.campaigns)
 
   const dispatch = useDispatch()
 

@@ -1,6 +1,7 @@
 import React, { FC, useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { setIsPortalOpen, setIsDateError } from '../store/ui-slice'
+import { setIsPortalOpen } from '../store/ui-slice'
+import { setIsDateError } from '../store/campaigns-slice'
 import { Calendar } from '.'
 import { FROM, TO } from '../constants'
 import { IState, FilterDateType } from '../types'
@@ -10,8 +11,8 @@ interface IDateFilter {
 }
 
 export const DateFilter: FC<IDateFilter> = ({ text }) => {
-  const { isPortalOpen, isDateError } = useSelector((state: IState) => state.ui)
-  const { filterDates } = useSelector((state: IState) => state.campaigns)
+  const { isPortalOpen } = useSelector((state: IState) => state.ui)
+  const { isDateError, filterDates } = useSelector((state: IState) => state.campaigns)
 
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const dispatch = useDispatch()
@@ -48,7 +49,7 @@ export const DateFilter: FC<IDateFilter> = ({ text }) => {
           {text}: {date?.toLocaleDateString() ?? '__/__/__'}
         </div>
         {isOpen &&
-          <div className='absolute z-10 opacity-0.1 top-14 -right-32'>
+          <div className='absolute z-10 opacity-0.1 top-14 -right-28'>
             <Calendar managePortal={managePortal} filterDateType={text} filterDates={filterDates} />
           </div>}
       </div>

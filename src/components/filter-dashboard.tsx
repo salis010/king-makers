@@ -5,7 +5,7 @@ import { FROM, TO } from '../constants'
 import { IState } from '../types'
 
 export const FilterDashboard: FC = () => {
-  const { isDateError } = useSelector((state: IState) => state.ui)
+  const { isDateError } = useSelector((state: IState) => state.campaigns)
 
   return (
     <div className='flex items-center'>

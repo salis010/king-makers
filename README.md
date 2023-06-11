@@ -4,6 +4,9 @@ TODO
 ====
 
 - kill the UI slice
+- filter feature
+- search feature
+- add campaigns from console
 - is the typings folder required?
 - is typings/custom/import-jpg.d.ts required
 - are all the colors in tailwind config file required?

@@ -5,6 +5,6 @@ interface IDayName {
 }
 
 export const DayName: FunctionComponent<IDayName> = ({ dayName }) =>
-  <div className='flex items-center justify-center p-4 select-none bg-secondary-100'>
+  <div className='flex items-center justify-center px-6 py-4 mx-2 select-none bg-secondary-100'>
     {dayName}
   </div>

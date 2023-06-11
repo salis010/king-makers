@@ -55,7 +55,7 @@ export const Calendar: FC<ICalendar> = ({ managePortal, filterDateType, filterDa
 
   return (
     <div>
-      <div className='flex flex-col text-2xl border rounded-lg bg-secondary-100 w-96 border-primary-200 bg-grey-50'>
+      <div className='flex flex-col w-full text-2xl border rounded-lg w-280 bg-secondary-100 border-primary-200 bg-grey-50'>
         <div className='flex items-center justify-between p-4 text-xl font-bold border select-none text-grey-100 bg-primary-200 border-primary-200 text-secondary-50'>
           <MonthButton variation={-1} handleChangeMonth={handleChangeMonth} />
           {`${getMonthName(displayedMonth)} ${displayedYear}`}

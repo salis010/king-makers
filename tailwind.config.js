@@ -26,6 +26,7 @@ module.exports = {
     },
     extend: {
       width: {
+        280: '28rem',
         300: '30rem'
       },
       keyframes: {

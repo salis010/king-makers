@@ -1,11 +1,11 @@
 import React, { FC } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { setIsSearchBoxOpen, setSearchTerm, clearSearch } from '../store/ui-slice'
+import { setIsSearchBoxOpen, setSearchTerm, clearSearch } from '../store/campaigns-slice'
 import { SearchIcon, CloseIcon } from '../images'
 import { IState } from '../store'
 
 export const SearchBox: FC = () => {
-  const { isSearchBoxOpen, searchTerm } = useSelector((state: IState) => state.ui)
+  const { isSearchBoxOpen, searchTerm } = useSelector((state: IState) => state.campaigns)
 
   const dispatch = useDispatch()
 
