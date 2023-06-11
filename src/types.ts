@@ -1,3 +1,5 @@
+import { FROM, TO } from './constants'
+
 export { IState } from './store'
 
 export interface ICampaign {
@@ -7,3 +9,10 @@ export interface ICampaign {
   endDate: Date
   budget: number
 }
+
+export interface IFilterDates {
+  FROM?: Date
+  TO?: Date
+}
+
+export type FilterDateType = typeof FROM | typeof TO

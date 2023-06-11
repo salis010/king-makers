@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { getDateFromString } from '../../utils'
 
 export interface IUI {
+  isPortalOpen: boolean
   isFilterDashboardOpen: boolean
   isDatePortalOpen: boolean
   isSearchBoxOpen: boolean
@@ -12,6 +13,7 @@ export interface IUI {
 }
 
 export const uiInitialState: IUI = {
+  isPortalOpen: false,
   isFilterDashboardOpen: true,
   isDatePortalOpen: false,
   isSearchBoxOpen: false,
@@ -23,8 +25,8 @@ export const uiSlice = createSlice({
   name: 'ui',
   initialState: uiInitialState,
   reducers: {
+    setIsPortalOpen: (state, action: PayloadAction<boolean>) => { state.isPortalOpen = action.payload },
     setIsFilterDashboardOpen: state => { state.isFilterDashboardOpen = !state.isFilterDashboardOpen },
-    setIsDatePortalOpen: (state, action: PayloadAction<boolean>) => { state.isDatePortalOpen = action.payload },
     setFilterFromDate: (state, action: PayloadAction<string>) => { state.filterFromDate = getDateFromString(action.payload) },
     setFilterToDate: (state, action: PayloadAction<string>) => { state.filterToDate = getDateFromString(action.payload) },
     setIsDateError: (state, action: PayloadAction<boolean>) => { state.isDateError = action.payload },
@@ -40,7 +42,7 @@ export const uiSlice = createSlice({
 
 export const {
   setIsFilterDashboardOpen,
-  setIsDatePortalOpen,
+  setIsPortalOpen,
   setFilterFromDate,
   setFilterToDate,
   setIsDateError,

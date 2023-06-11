@@ -1,8 +1,8 @@
 import React, { FC } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { setIsFilterDashboardOpen, clearFilter } from '../store/ui-slice'
 import { FilterDashboard } from '.'
 import { FilterIcon } from '../images'
-import { setIsFilterDashboardOpen, clearFilter } from '../store/ui-slice'
 import { IState } from '../types'
 
 export const TableFilterDashboard: FC = () => {

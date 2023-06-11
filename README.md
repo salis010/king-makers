@@ -3,9 +3,11 @@
 TODO
 ====
 
+- kill the UI slice
 - is the typings folder required?
 - is typings/custom/import-jpg.d.ts required
 - are all the colors in tailwind config file required?
+- remove commented out functions from general-utils.ts
 
 ![king-makers](./king-makers.png)
 
@@ -41,3 +43,4 @@ Go to `localhost:3000` on a browser.
 
 - the date picker needs some good improvements; ideally a more beautiful component than `<input type='date' />` is used.
 - the app should cater for smaller screens too.
+- testing
