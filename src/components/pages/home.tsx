@@ -5,10 +5,11 @@ import { IState } from '../../types'
 
 export const Home: FC = () => {
   const { isPortalOpen } = useSelector((state: IState) => state.ui)
+  const style = `relative flex flex-col items-center h-screen ${isPortalOpen ? 'overflow-hidden' : ''}`
 
   return (
     <main
-      className='relative flex flex-col items-center h-screen'
+      className={style}
     >
       <Header />
       <Table />

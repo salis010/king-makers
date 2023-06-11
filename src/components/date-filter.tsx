@@ -46,7 +46,7 @@ export const DateFilter: FC<IDateFilter> = ({ text }) => {
           className={`flex items-center justify-center px-4 py-2 mx-8 text-2xl rounded-full cursor-pointer bg-grey-150 ${textColor}`}
           onClick={managePortal}
         >
-          {text}: {date?.toLocaleDateString() ?? '__/__/__'}
+          {text}: {date?.toLocaleDateString() ?? '\xa0'.repeat(12)}
         </div>
         {isOpen &&
           <div className='absolute z-10 opacity-0.1 top-14 -right-28'>

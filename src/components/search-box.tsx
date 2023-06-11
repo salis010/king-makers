@@ -32,7 +32,7 @@ export const SearchBox: FC = () => {
     <>
       {!isSearchBoxOpen &&
         <div
-          className='absolute h-48 px-8 mb-8 cursor-pointer right-4 top-10'
+          className='absolute h-12 px-8 cursor-pointer right-4 top-10'
           onClick={openSearchBox}
         >
           <SearchIcon />
@@ -43,7 +43,7 @@ export const SearchBox: FC = () => {
             <input
               className='pl-4 text-3xl bg-grey-0 outline-0 text-grey-100'
               onChange={changeHandler}
-              value={searchTerm}
+              value={searchTerm ?? ''}
             />
             <div
               className='absolute flex items-center px-8 cursor-pointer -right-4'
