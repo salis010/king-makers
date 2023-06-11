@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk, PayloadAction, current } from '@reduxjs/toolkit'
 import { generateInitialCampaignsThunk } from './thunks'
 import { filterCampaigns } from '../../utils'
-import { ICampaigns, IFilterDates } from '../../types'
+import { ICampaigns, ICampaign, IFilterDates } from '../../types'
 
 export const campaignsInitialState: ICampaigns = {
   campaigns: [],
@@ -22,7 +22,21 @@ export const campaignSlice = createSlice({
   name: SLICE_NAME,
   initialState: campaignsInitialState,
   reducers: {
-    // addCampaigns: (state, action: PayloadAction<ICampaign[]>) => { state.campaigns = [...state.campaigns, ...action.payload] }
+    addCampaigns: (state, action: PayloadAction<ICampaign[]>) => {
+      const newCampaigns = action.payload.map(campaign => ({
+        ...campaign,
+        startDate: new Date(campaign.startDate),
+        endDate: new Date(campaign.endDate)
+      }))
+      const totalCampaigns = [...state.campaigns, ...newCampaigns]
+
+      state.searchTerm = ''
+      state.isSearchBoxOpen = false
+      state.isDateError = false
+      state.filterDates = {}
+      state.campaigns = totalCampaigns
+      state.campaignsToDisplay = totalCampaigns
+    },
     setIsFilterDashboardOpen: state => { state.isFilterDashboardOpen = !state.isFilterDashboardOpen },
     setFilterDates: (state, action: PayloadAction<IFilterDates>) => {
       state.filterDates = action.payload
@@ -56,6 +70,7 @@ export const campaignSlice = createSlice({
     // generate initial campaigns
     builder.addCase(generateInitialCampaigns.pending, () => {}) // TODO: show loader
     builder.addCase(generateInitialCampaigns.fulfilled, (state, action) => {
+      console.log(action.payload)
       state.campaigns = action.payload
       state.campaignsToDisplay = action.payload
     })
@@ -66,7 +81,7 @@ export const campaignSlice = createSlice({
 })
 
 export const {
-  // addCampaigns,
+  addCampaigns,
   setIsFilterDashboardOpen,
   setFilterDates,
   setIsDateError,
