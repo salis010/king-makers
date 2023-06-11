@@ -17,7 +17,6 @@ export const filterCampaigns = (state: ICampaigns): ICampaign[] => {
       isMatch = campaign.endDate <= toDate
     }
 
-    console.log(campaign.name, searchTerm, (new RegExp(searchTerm, 'i')).test(campaign.name))
     return searchTerm.length >= 2
       ? isMatch && (new RegExp(searchTerm, 'i')).test(campaign.name)
       : isMatch

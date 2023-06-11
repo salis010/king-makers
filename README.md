@@ -1,15 +1,5 @@
 # King Makers
 
-TODO
-====
-
-- add campaigns from console
-- is the typings folder required?
-- is typings/custom/import-jpg.d.ts required
-- are all the colors in tailwind config file required?
-- remove commented out functions from general-utils.ts
-- set isFilterDashboardOpen to false
-
 ![king-makers](./king-makers.png)
 
 ## Installation
@@ -18,19 +8,18 @@ Clone the app:
 ```
 git clone git@github.com:salis010/king-makers.git
 ```
-Install and build:
+Install packages:
 ```
-npm i && npm run build
+npm i
 ```
 Start
 ```
-npm run server
+npm run start
 ```
-Go to `localhost:3000` on a browser.
+Go to `localhost:4000` in a browser.
 
 ## Tech Stack
 - React
-- React-Router
 - TypeScript
 - Redux(toolkit)
 - Tailwind
@@ -39,9 +28,19 @@ Go to `localhost:3000` on a browser.
 
 ## Features
 
+### AddCampaigns
+
+To test the `AddCampaigns` function from the browser's console, please use the `testCampaigns` array available at 'src/App.tsx' or a similar array.
+
+### Number of Campaigns
+
+Campaigns are generated randomly (and asynchronously). The number of campaigns generated can be altered by editing the below ('src/constants.ts'):
+```
+export const NUMBER_OF_CAMPAIGNS = 100
+```
 
 ## Suggested Improvements
 
 - pagination
-- the app should cater for smaller screens too
-- testing
+- responsiveness: the app should cater for smaller screens too
+- unit testing and integration testing

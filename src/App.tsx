@@ -17,7 +17,6 @@ export const App: FC = () => {
   const dispatch = useDispatch()
 
   const AddCampaigns = (campaigns: ICampaign[]): void => {
-    alert('dispatching...')
     dispatch(addCampaigns(campaigns))
   }
 

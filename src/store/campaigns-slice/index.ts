@@ -6,7 +6,7 @@ import { ICampaigns, ICampaign, IFilterDates } from '../../types'
 export const campaignsInitialState: ICampaigns = {
   campaigns: [],
   campaignsToDisplay: [],
-  isFilterDashboardOpen: true,
+  isFilterDashboardOpen: false,
   isDatePortalOpen: false,
   isSearchBoxOpen: false,
   searchTerm: '',
@@ -70,7 +70,6 @@ export const campaignSlice = createSlice({
     // generate initial campaigns
     builder.addCase(generateInitialCampaigns.pending, () => {}) // TODO: show loader
     builder.addCase(generateInitialCampaigns.fulfilled, (state, action) => {
-      console.log(action.payload)
       state.campaigns = action.payload
       state.campaignsToDisplay = action.payload
     })
